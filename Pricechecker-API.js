@@ -10,4 +10,23 @@
 // ==/UserScript==
 
 // Твой код ниже:
-alert("GitHub подключен!");
+(function() {
+    'use strict';
+
+    // Функция создания pop-up
+    function showCustomPopup(message) {
+        const popup = document.createElement('div');
+        popup.innerHTML = `
+            <div style="position: fixed; top: 20px; right: 20px; background: #333; color: #fff; 
+                        padding: 15px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                ${message}
+                <button onclick="this.parentElement.remove()" style="margin-left: 10px; cursor: pointer;">X</button>
+            </div>
+        `;
+        document.body.appendChild(popup);
+    }
+
+    // Вызываем нашу функцию
+    console.log("Pricechecker started");
+    showCustomPopup("Hello test!");
+})();
